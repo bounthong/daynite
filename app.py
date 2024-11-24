@@ -20,6 +20,10 @@ def get_db_connection():
     )
     return pyodbc.connect(connection_string)
 
+@app.route('/')
+def home():
+    return jsonify({"message": "Welcome to DayNite on AWS!"})
+
 @app.route('/employees', methods=['GET'])
 def get_employees():
     """Fetch employees from the database."""
